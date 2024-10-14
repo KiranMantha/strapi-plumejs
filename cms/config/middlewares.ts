@@ -10,8 +10,4 @@ export default [
   'strapi::favicon',
   'strapi::public',
   'global::segregate-components'
-  // {
-  //   name: 'segregate-components', // Middleware name
-  //   config: {}, // You can pass configuration here if needed
-  // },
 ];

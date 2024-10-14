@@ -48,6 +48,7 @@ export default (config, { strapi }: { strapi: Core.Strapi }) => {
             order: index + 1 // Use the index to maintain order
           });
 
+          // Remove the component from the main entity to keep the rest clean
           delete entity[key];
         }
       });
