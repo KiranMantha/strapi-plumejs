@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_components_quotes",
+  "info": {
+    "displayName": "Quote"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "quotation": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}
