@@ -2,7 +2,7 @@
  * `segregate-components` middleware
  */
 
-import type { Core } from "@strapi/strapi";
+import type { Core } from '@strapi/strapi';
 
 // Define the structured component response
 interface StructuredComponent {
@@ -16,7 +16,7 @@ const isComponent = (field: any): boolean => {
   if (field && typeof field === 'object') {
     // If it's an array, check that all elements in the array have an 'id'
     if (Array.isArray(field) && field.length) {
-      return field.every(item => item && typeof item === 'object' && 'id' in item);
+      return field.every((item) => item && typeof item === 'object' && 'id' in item);
     }
     // If it's an object, check that it has an 'id'
     return 'id' in field;
@@ -27,17 +27,17 @@ const isComponent = (field: any): boolean => {
 export default (config, { strapi }: { strapi: Core.Strapi }) => {
   // Add your own logic here.
   return async (ctx, next) => {
-    strapi.log.info("In segregate-components middleware.");
+    strapi.log.info('In segregate-components middleware.');
 
     await next();
     if (ctx.request.url.startsWith('/api/') && ctx.response && ctx.response.body && ctx.response.body.data) {
       const entity = ctx.response.body.data; // Assuming the main entity is under `data`
 
       console.log('\n\nentity', entity, '\n\n');
-  
+
       // Components array to store the segregated components
       const components: StructuredComponent[] = [];
-  
+
       // Iterate over each key-value pair in the entity
       Object.entries(entity).forEach(([key, value], index) => {
         if (isComponent(value)) {
@@ -45,17 +45,17 @@ export default (config, { strapi }: { strapi: Core.Strapi }) => {
           components.push({
             componentType: key, // Use the key as the component type (e.g., 'heroBanner')
             data: value, // The actual data of the component
-            order: index + 1, // Use the index to maintain order
+            order: index + 1 // Use the index to maintain order
           });
-          
+
           delete entity[key];
         }
       });
-  
+
       // Add the components array back to the entity
       ctx.response.body = {
         ...ctx.response.body, // Preserve meta and other top-level fields
-        components, // Add the structured components array
+        components // Add the structured components array
       };
     }
   };

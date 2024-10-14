@@ -17,13 +17,13 @@ import { Component, html, Input, signal } from '@plumejs/core';
         flex-direction: column;
         justify-content: center;
         &.text-left {
-            align-items: flex-start;
+          align-items: flex-start;
         }
         &.text-center {
-            align-items: center;
+          align-items: center;
         }
         &.text-right {
-            align-items: flex-end;
+          align-items: flex-end;
         }
       }
     }
@@ -42,7 +42,10 @@ export class HeroBanner {
     if (this.props()) {
       const { heading, description, textPosition, image } = this.props();
 
-      return html`<div class="hero-banner-container" style="--bg-image: url(${'http://localhost:1337' + image?.url}); color: ${image?.url ? '#000' : '#fff'}">
+      return html`<div
+        class="hero-banner-container"
+        style="--bg-image: url(${'http://localhost:1337' + image?.url}); color: ${image?.url ? '#000' : '#fff'}"
+      >
         <div class="content text-${textPosition}">
           <h2>${heading}</h2>
           <p>${description}</p>

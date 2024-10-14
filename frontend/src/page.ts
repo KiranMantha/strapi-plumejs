@@ -1,7 +1,7 @@
 import { Component, html, signal } from '@plumejs/core';
 import { Router } from '@plumejs/router';
-import { StrapiService } from './services/strapi.service';
 import { MappedComponent } from './models';
+import { StrapiService } from './services/strapi.service';
 
 @Component({
   selector: 'app-page',
