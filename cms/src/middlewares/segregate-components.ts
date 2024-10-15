@@ -33,8 +33,6 @@ export default (config, { strapi }: { strapi: Core.Strapi }) => {
     if (ctx.request.url.startsWith('/api/') && ctx.response && ctx.response.body && ctx.response.body.data) {
       const entity = ctx.response.body.data; // Assuming the main entity is under `data`
 
-      console.log('\n\nentity', entity, '\n\n');
-
       // Components array to store the segregated components
       const components: StructuredComponent[] = [];
 

@@ -6,17 +6,18 @@ import { Component, html, Input, signal } from '@plumejs/core';
     .duplex-container {
       display: flex;
       align-items: center;
-      gap: 35px;
+      gap: 70px;
+      margin: 70px 0;
       &.reverse {
         flex-direction: row-reverse;
       }
       .image {
         height: 399px;
         width: 595px;
-        flex: 35%;
+        flex: 40%;
       }
       .description {
-        flex: 65%;
+        flex: 60%;
       }
     }
   `
@@ -33,11 +34,11 @@ export class Duplex {
   render() {
     if (this.props()) {
       const { heading, description, image, imagePosition } = this.props();
-      return html` <div class="duplex-container ${imagePosition === 'left' ? '' : 'reverse'}">
+      return html` <div class="container mx-auto duplex-container ${imagePosition === 'left' ? '' : 'reverse'}">
         <app-asset class="image" data-input=${{ props: image }}></app-asset>
         <div class="description">
-          <h3>${heading}</h3>
-          <p>${description}</p>
+          <h2 class="text-4xl font-bold text-foreground">${heading}</h2>
+          <p class="text-gray-500 mt-8 text-lg">${description}</p>
         </div>
       </div>`;
     }

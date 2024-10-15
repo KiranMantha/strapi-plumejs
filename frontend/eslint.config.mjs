@@ -14,7 +14,7 @@ export default [
         project: ['./tsconfig.json']
       }
     },
-    ignores: ['build/**/*', 'eslint.config.mjs'],
+    ignores: ['build/**/*', 'eslint.config.mjs', 'tailwind.config.js', 'postcss.config.js'],
     rules: {
       '@typescript-eslint/no-unused-vars': [
         'error',

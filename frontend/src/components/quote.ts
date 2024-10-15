@@ -14,10 +14,10 @@ import './richText';
       .image {
         height: 505px;
         width: 605px;
-        flex: 35%;
+        flex: 40%;
       }
       .description {
-        flex: 65%;
+        flex: 60%;
       }
     }
   `
@@ -32,7 +32,7 @@ export class Quote {
   render() {
     if (this.props()) {
       const { image, quotation } = this.props();
-      return html` <div class="quote-container">
+      return html` <div class="container mx-auto quote-container">
         <app-asset class="image" data-input=${{ props: image }}></app-asset>
         <app-rich-text class="description" data-input=${{ props: { content: quotation } }}></app-rich-text>
       </div>`;

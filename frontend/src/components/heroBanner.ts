@@ -16,14 +16,22 @@ import { Component, html, Input, signal } from '@plumejs/core';
         display: flex;
         flex-direction: column;
         justify-content: center;
-        &.text-left {
+        gap: 30px;
+        max-width: 30rem;
+
+        &.align-left {
           align-items: flex-start;
+          margin-right: auto;
+          margin-left: 250px;
         }
-        &.text-center {
+        &.align-center {
           align-items: center;
+          margin: auto;
         }
-        &.text-right {
+        &.align-right {
           align-items: flex-end;
+          margin-left: auto;
+          margin-right: 250px;
         }
       }
     }
@@ -46,9 +54,9 @@ export class HeroBanner {
         class="hero-banner-container"
         style="--bg-image: url(${'http://localhost:1337' + image?.url}); color: ${image?.url ? '#000' : '#fff'}"
       >
-        <div class="content text-${textPosition}">
-          <h2>${heading}</h2>
-          <p>${description}</p>
+        <div class="content align-${textPosition} text-${textPosition}">
+          <h2 class="text-5xl text-primary mb-4 font-semibold">${heading}</h2>
+          <p class="text-2xl text-muted-foreground font-thin">${description}</p>
         </div>
       </div>`;
     }
