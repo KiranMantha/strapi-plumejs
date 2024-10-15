@@ -20,7 +20,7 @@ export class Asset {
     if (this.props()) {
       const { mime, name, url } = this.props();
       if (mime.includes('image')) {
-        return html`<img class="asset-img" src="${assetHost + url}" alt="${name}" />`;
+        return html`<img class="asset-img shadow-2xl" src="${assetHost + url}" alt="${name}" />`;
       }
       return html``;
     }
