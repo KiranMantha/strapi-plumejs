@@ -14,8 +14,8 @@ export class StrapiService {
         Authorization: `Bearer ${token}`
       }
     });
-    const { data, components } = response.data;
+    const { title, components } = response.data.data;
     const mappedComponents = mapComponents(components);
-    return { title: data.title, components: mappedComponents };
+    return { title: title, components: mappedComponents };
   }
 }

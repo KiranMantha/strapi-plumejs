@@ -52,8 +52,8 @@ export default (config, { strapi }: { strapi: Core.Strapi }) => {
       });
 
       // Add the components array back to the entity
-      ctx.response.body = {
-        ...ctx.response.body, // Preserve meta and other top-level fields
+      ctx.response.body.data = {
+        ...ctx.response.body.data, // Preserve meta and other top-level fields
         components // Add the structured components array
       };
     }
