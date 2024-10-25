@@ -4,6 +4,7 @@
   "description": "a plumejs app to render ui based on strapi content types",
   "main": "index.js",
   "scripts": {
+    "setup": "yarn install",
     "start": "vite",
     "build": "yarn tsc && vite build",
     "tsc": "tsc -p tsconfig.json --noEmit",

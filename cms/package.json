@@ -7,6 +7,7 @@
     "build": "strapi build",
     "deploy": "strapi deploy",
     "develop": "strapi develop",
+    "setup": "yarn install",
     "start": "strapi start",
     "strapi": "strapi"
   },
