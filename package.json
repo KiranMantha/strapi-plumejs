@@ -1,0 +1,18 @@
+{
+  "name": "strapi-plumejs",
+  "version": "1.0.0",
+  "description": "A plumejs application whose FE is driven by strapi CMS",
+  "main": "index.js",
+  "scripts": {
+    "setup:frontend": "cd frontend && yarn",
+    "setup:cms": "cd cms && yarn",
+    "setup": "yarn install && yarn setup:frontend && yarn setup:cms",
+    "start:dev": "concurrently \"cd cms && yarn develop\" \"cd frontend && yarn start\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
