@@ -7,7 +7,10 @@
     "setup:frontend": "cd frontend && yarn",
     "setup:cms": "cd cms && yarn",
     "setup": "yarn install && yarn setup:frontend && yarn setup:cms",
-    "start:dev": "concurrently \"cd cms && yarn develop\" \"cd frontend && yarn start\""
+    "build:frontend": "cd frontend && yarn build",
+    "build": "yarn build:frontend",
+    "start:dev": "concurrently \"cd cms && yarn develop\" \"cd frontend && yarn start\"",
+    "serve": "yarn build && concurrently \"cd frontend && yarn serve\" \"cd cms && yarn develop\""
   },
   "keywords": [],
   "author": "",

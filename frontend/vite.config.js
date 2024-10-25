@@ -11,7 +11,7 @@ export default defineConfig({
       plugins: [
         visualizer({
           title: 'Plumejs example repo',
-          open: true
+          open: false
         })
       ]
     }
