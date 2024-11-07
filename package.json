@@ -9,7 +9,7 @@
     "setup": "yarn install && yarn setup:frontend && yarn setup:cms",
     "build:frontend": "cd frontend && yarn build",
     "build": "yarn build:frontend",
-    "start:dev": "concurrently \"cd cms && yarn develop\" \"cd frontend && yarn start\"",
+    "start": "concurrently \"cd cms && yarn develop\" \"cd frontend && yarn start\"",
     "serve": "yarn build && concurrently \"cd frontend && yarn serve\" \"cd cms && yarn develop\""
   },
   "keywords": [],

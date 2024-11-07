@@ -16,17 +16,11 @@ export class Page {
   components = signal<MappedComponent[]>([]);
 
   beforeMount() {
-    try {
-      this.router.getCurrentRoute().subscribe(async (routeInfo) => {
-        console.log(routeInfo);
-        this.strapiService.getContent(routeInfo.path).then((data) => {
-          console.log(data);
-          this.components.set(data.components);
-        });
+    this.router.getCurrentRoute().subscribe(async (routeInfo) => {
+      this.strapiService.getContent(routeInfo.path).then((data) => {
+        this.components.set(data.components);
       });
-    } catch (e) {
-      console.log(e);
-    }
+    });
   }
 
   render() {

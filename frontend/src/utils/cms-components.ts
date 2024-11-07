@@ -1,10 +1,7 @@
-import { Asset, Duplex, HeroBanner, Quote } from '../components';
-import { RichText } from '../components/richText';
-
 export const componentMap = {
-  heroBanner: HeroBanner,
-  duplex: Duplex,
-  quote: Quote,
-  image: Asset,
-  richText: RichText
+  heroBanner: import('../components/heroBanner').then((m) => m.HeroBanner),
+  duplex: import('../components/duplex').then((m) => m.Duplex),
+  quote: import('../components/quote').then((m) => m.Quote),
+  image: import('../components/asset').then((m) => m.Asset),
+  richText: import('../components/richText').then((m) => m.RichText)
 };
