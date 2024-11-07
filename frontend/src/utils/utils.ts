@@ -1,25 +1,6 @@
 import { CMSComponent, MappedComponent } from '../models';
 import { componentMap } from './cms-components';
 
-export async function mapComponents(components: CMSComponent[]): Promise<MappedComponent[]> {
-  const props = {};
-  const dynamicComponents = [];
-
-  for (const component of components) {
-    const { componentType, data } = component;
-    if (Array.isArray(data)) {
-      data.forEach((item) => {
-        dynamicComponents.push(componentType);
-        props[componentType] = item;
-      });
-    } else {
-      dynamicComponents.push(componentType);
-      props[componentType] = data;
-    }
-  }
-  return await loadMappedComponents(dynamicComponents, props);
-}
-
 async function loadMappedComponents(components: Array<string>, props: Record<string, Record<string, unknown>>) {
   const mappedComponents: MappedComponent[] = [];
   const loadedComponents = await Promise.all(
@@ -39,4 +20,23 @@ async function loadMappedComponents(components: Array<string>, props: Record<str
     }
   }
   return mappedComponents;
+}
+
+export async function mapComponents(components: CMSComponent[]): Promise<MappedComponent[]> {
+  const props = {};
+  const dynamicComponents = [];
+
+  for (const component of components) {
+    const { componentType, data } = component;
+    if (Array.isArray(data)) {
+      data.forEach((item) => {
+        dynamicComponents.push(componentType);
+        props[componentType] = item;
+      });
+    } else {
+      dynamicComponents.push(componentType);
+      props[componentType] = data;
+    }
+  }
+  return await loadMappedComponents(dynamicComponents, props);
 }
